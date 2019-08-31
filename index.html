@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="stylesheet.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>GitHub API</title>
+</head>
+
+<body>
+	<div id="head">
+		<div id="text-in-head">
+			<h1 style="display: inline-block;font-size:50px;"><i class="fa fa-github" style="color: #fff;"></i> GitHub Search</h1>
+		</div>
+	</div>
+
+	<div id="input-field">
+		<div id="search-field">
+			<div><span>Username:</span><input class="input" type="text" name="username" autocomplete="off" placeholder="Enter a username"></div>
+			<div><span>Password:</span><input class="input" type="password" name="password" autocomplete="off" placeholder="Enter a password"></div>
+			<div><span>GitHub User:</span><input class="input" type="text" name="user-to-search" autocomplete="off" placeholder="Enter a search request" style="margin-top: 10px;">
+			</div>
+			<button id="go-button">Go</button>
+		</div>
+	</div>
+
+
+	<div id="results-container"></div>
+
+
+	<script id="repos" type='text/x-handlebars-template'>
+		{{#repos}}
+			<div class="relative">
+				<div class="results">
+					{{#owner}}
+						<img src={{avatar_url}} alt="userfoto">
+					{{/owner}}
+					<p>
+						{{ full_name }}
+					</p>
+				</div>
+				<div class="commits">
+					<h3>Commits:</h3>
+					<ul></ul>
+				</div>
+			</div>
+		{{/repos}}
+	</script>
+
+	<script id="commits" type='text/x-handlebars-template'>
+		{{#commits}}
+			{{#commit}}
+				<li>
+					{{message}}
+				</li>
+			{{/commit}}
+		{{/commits}}
+	</script>
+
+	<!-- example3 -->
+	<!-- <script id="results" type="text/x-handlebars-template">
+	{{#items}}
+
+		<div class="gallery">
+			<a target="_blank" href={{images.0.url}}>
+				<img src={{images.0.url}} alt="Forest" width="600" height="400">
+			</a>
+
+			<div class="desc">{{name}}</div>
+		</div>
+	{{/items}}
+</script> -->
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
