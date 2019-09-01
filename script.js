@@ -8,6 +8,8 @@
     var endPoint = [];
     var baseUrl = 'https://api.github.com';
 
+
+
     $('#go-button').on('click', function(){
         // console.log('SanityCheck!');
         username = $('input[name="username"]').val();
